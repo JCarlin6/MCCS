@@ -211,10 +211,11 @@ $ADCheck = $CheckifADorLocal[0]->ActiveDirectory;
         <div id="collapseControls" class="collapse" aria-labelledby="headinglocations" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Control:</h6>
-            <a class="collapse-item" href="controls.php?do=controller&action=usergroups">User Groups</a>
             <?php
               if($ADCheck == '0'){
+                echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=usergroups\">User Groups</a>";
                 echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=users\">Users</a>";
+                echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=userroles\">User Roles</a>";
               } 
             ?>
           </div>

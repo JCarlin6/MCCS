@@ -988,6 +988,9 @@ $conn->query("$sql");
 $sql = "CREATE VIEW `getRoleList` AS select `User_Group_Details`.`id` AS `DetailID`,concat(`User`.`FirstName`,' ',`User`.`LastName`) AS `FullName`,`User_Roles`.`Description` AS `GroupDescription` from ((`User_Group_Details` join `User_Roles` on(`User_Group_Details`.`Role` = `User_Roles`.`id`)) join `User` on(`User_Group_Details`.`UID` = `User`.`id`));";
 $conn->query("$sql");
 
+$sql = "CREATE VIEW `getUserRoles` AS SELECT user_roles.id, user_roles.Description AS Role_Description, user_roles.Level, user_roles.`Group`, user_group.Description AS Group_Description, location_facility.Name FROM user_group INNER JOIN location_facility ON user_group.Facility = location_facility.id RIGHT OUTER JOIN user_roles ON user_roles.`Group` = user_group.id WHERE user_group.Active = '1' ;";
+$conn->query("$sql");
+
 $sql = "CREATE VIEW `getUpcomingPM` AS select `Assets`.`Name` AS `Asset`,`Location_Department`.`Name` AS `Department`,`Workorder_PM`.`NextRunDate` AS `NextRunDate`,`Workorder_PM`.`id` AS `PMID`,`Workorder_PM`.`WorkDescription` AS `WorkDescription`,concat(`User`.`FirstName`,' ',`User`.`LastName`) AS `Assignee`,`User_Group`.`Description` AS `AuthGroup`,`Workorder_PM`.`NextRunDate` + interval ifnull(`Workorder_PM`.`DaysToComplete`,'1') day AS `DueDate` from ((((`Workorder_PM` join `Assets` on(`Workorder_PM`.`Asset` = `Assets`.`id`)) left join `Location_Department` on(`Assets`.`Department` = `Location_Department`.`id`)) left join `User` on(`Workorder_PM`.`Assignee` = `User`.`id`)) join `User_Group` on(`Workorder_PM`.`AssignedGroup` = `User_Group`.`id`)) where `Workorder_PM`.`Enabled` is not null and `Workorder_PM`.`Deleted` is null order by `Workorder_PM`.`NextRunDate`,`Workorder_PM`.`id`;";
 $conn->query("$sql");
 
@@ -1062,7 +1065,7 @@ $conn->query("$sql");
 $sql = "INSERT INTO `Inventory_Classes` VALUES (496,'A','Critical Spare',1),(497,'B','Important',1),(498,'C','Non-Critical',1);";
 $conn->query("$sql");
 
-$sql = "INSERT INTO `User_Roles` VALUES (1,'Admin',0,NULL),(2,'Maintenance Supervisor',1,6),(3,'Crib Attendant',2,6),(4,'Maintenance Operator',3,6),(5,'Safety Office',4,7)";
+$sql = "INSERT INTO `User_Roles` VALUES (1,'Admin',0,NULL),(2,'Maintenance Supervisor',1,1),(3,'Crib Attendant',2,1),(4,'Maintenance Operator',3,1),(5,'Safety Office',4,3)";
 $conn->query("$sql");
 
 $sql = "INSERT INTO `User_Group` VALUES (1,'Maintenance',1,1),(2,'Management',1,1),(3,'Safety',1,1);";

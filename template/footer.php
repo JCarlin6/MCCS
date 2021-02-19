@@ -1455,6 +1455,28 @@ $(document).ready(function() {
       } );
   } );
 </script>
+
+<script>
+$(document).ready(function() {
+    $('#getUserRoles').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "server_side/scripts/getUserRoles.php",
+        dom: 'Blfrtip',
+        buttons: [ 'excel', 'pdf', 'copy' ],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        'columnDefs': [
+        {
+         'targets': 4,
+         'render': function (data, type, row, meta){
+            var inputchar = '  <td><input type="radio" id="UserRoleSelection" name="UserRoleSelection[]" value="'+row[-1]+'"></td>';
+            return inputchar;
+         }
+        }]
+      } );
+  } );
+</script>
+
 <script>
 
   $(document).ready(function() {
