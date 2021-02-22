@@ -1,6 +1,12 @@
 <form enctype="multipart/form-data" action="/setup/logic.php?" method="post" class="text-center" id="SiteForm">
     <div class="row justify-content-center">
         <div class="form-group col-4">
+            <label for="SitePath">Site Path</label>
+            <input type="text" class="form-control" id="SitePath" aria-describedby="SitePath" placeholder="127.0.0.1">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="form-group col-4">
             <label for="DefaultSiteName">Default Site Name</label>
             <input type="text" class="form-control" id="DefaultSiteName" aria-describedby="DefaultSiteName" placeholder="Default Site">
         </div>

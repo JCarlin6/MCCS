@@ -53,6 +53,7 @@ function DefaultSite(){
   var City = document.getElementById("City").value;
   var State = document.getElementById("State").value;
   var Country = document.getElementById("Country").value;
+  var SitePath = document.getElementById("SitePath").value;
   document.getElementById("DefaultSiteAdd").remove();
 
   //Send to SQL
@@ -67,7 +68,8 @@ function DefaultSite(){
       Street: Street,
       City: City,
       State: State,
-      Country: Country
+      Country: Country,
+      SitePath: SitePath
     },
     success: function(data){
       console.log('Default Site Information Added');

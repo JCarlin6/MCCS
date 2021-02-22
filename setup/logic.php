@@ -108,10 +108,14 @@ if (isset($_POST['SQLDetails'])):
     if (intval($_POST['DefaultSite']) == 0 || empty($_POST['DefaultSite'])):
 
       $DefaultSiteName = $_POST["DefaultSiteName"];
+      $SiteName = $_POST["DefaultSiteName"];
+      $SitePath = $_POST["SitePath"];
       $Street = $_POST["Street"];
       $City = $_POST["City"];
       $State = $_POST["State"];
       $Country = $_POST["Country"];
+
+      include 'pages/site_data.php';
         
       $MySQLServerAddress = $_COOKIE["MySQLServerAddress"];
       $MySQLUsername = $_COOKIE["MySQLUsername"];
