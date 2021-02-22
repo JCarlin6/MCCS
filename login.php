@@ -34,7 +34,7 @@ if ($AlertActive != NULL){ ?>
         <h3>Login</h3>
         <form enctype="multipart/form-data" action="/ajax/usercontroller.php?" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" required="required" autocomplete="off" name="username" placeholder="First.Last@GrupoAntolin.com" value="" />
+                <input type="text" class="form-control" required="required" autocomplete="off" name="username" placeholder="First.Last@MyAwesomeCompany.com" value="" />
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" required="required" autocomplete="off" name="password" placeholder="********" value="" />

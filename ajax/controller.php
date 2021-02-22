@@ -2,10 +2,6 @@
   /**
    * Controller
    *
-   * @package Freelance Manager
-   * **GrupoAntolin**
-   * @copyright 2010
-   * @version $Id: controller.php, v1.00 2011-11-10 10:12:05 gewa Exp $
    */
   define("_VALID_PHP", true);
   require_once("../init.php");

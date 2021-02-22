@@ -66,7 +66,7 @@
                 if (\$result = \$mysqli->query(\"SELECT id FROM User WHERE lower(UserName)='\$Username'\")) {
                     //If 0 found insert ID else
                     if(\$result->num_rows == 0){
-                        \$sql = \"INSERT INTO User (FirstName, LastName, UserName, Email, Active) VALUES ('\$FirstName', '\$LastName', '\$Username', '\$Username@grupoantolin.com', '1')\";
+                        \$sql = \"INSERT INTO User (FirstName, LastName, UserName, Email, Active) VALUES ('\$FirstName', '\$LastName', '\$Username', '\$Username@$FQDN', '1')\";
                         \$mysqli->query(\$sql);
                         if (\$result = \$mysqli->query(\"SELECT id FROM User WHERE UserName='\$Username'\")) {
                             while(\$row = mysqli_fetch_assoc(\$result)) {

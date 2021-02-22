@@ -3052,7 +3052,7 @@ echo "<br />";
                 require_once "Mail.php";
     
                 //Define Common Elements
-                $from = "Maintenance Control System <HowellIT@grupoantolin.com>";
+                $from = "Maintenance Control System <HowellIT@MyAwesomeCompany.com>";
                 $content = "text/html; charset=utf-8";
                 $mime = "1.0";
 
