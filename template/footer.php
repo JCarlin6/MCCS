@@ -1478,6 +1478,27 @@ $(document).ready(function() {
 </script>
 
 <script>
+$(document).ready(function() {
+    $('#getControlGroups').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "server_side/scripts/getControlGroups.php",
+        dom: 'Blfrtip',
+        buttons: [ 'excel', 'pdf', 'copy' ],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        'columnDefs': [
+        {
+         'targets': 2,
+         'render': function (data, type, row, meta){
+            var inputchar = '  <td><input type="radio" id="UserGroupSelection" name="UserGroupSelection" value="'+row[-1]+'"></td>';
+            return inputchar;
+         }
+        }]
+      } );
+  } );
+</script>
+
+<script>
 
   $(document).ready(function() {
     $('#getUserList').DataTable( {

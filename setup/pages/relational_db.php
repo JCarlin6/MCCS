@@ -907,6 +907,9 @@ $conn->query("$sql");
 $sql = "CREATE VIEW `GetAssetListActive` AS select `Assets`.`id` AS `id`,`Assets`.`Name` AS `Name`,`Assets`.`Description` AS `Description`,`Assets_Classes`.`Name` AS `AssetClassName`,`Location_Facility`.`Name` AS `FacilityName`,`Assets`.`Status` AS `Status`,`Assets`.`InService` AS `InService`,`Assets`.`Active` AS `Active` from ((`Assets` left join `Assets_Classes` on(`Assets`.`AssetClass` = `Assets_Classes`.`id`)) left join `Location_Facility` on(`Assets`.`Facility` = `Location_Facility`.`id`)) where `Assets`.`Active` = '1';";
 $conn->query("$sql");
 
+$sql = "CREATE VIEW `getControlGroup` AS SELECT user_group.id, user_group.Description AS Group_Description, location_facility.Name FROM user_group INNER JOIN location_facility ON user_group.Facility = location_facility.id WHERE user_group.Active = '1';";
+$conn->query("$sql");
+
 $sql = "CREATE VIEW `getAssetList` AS select `Assets`.`id` AS `id`,`Assets`.`Name` AS `Name`,`Assets`.`Description` AS `Description`,`Assets_Classes`.`Name` AS `AssetClassName`,`Location_Facility`.`Name` AS `FacilityName`,`Assets`.`Status` AS `Status`,`Assets`.`InService` AS `InService`,`Assets`.`Active` AS `Active` from ((`Assets` left join `Assets_Classes` on(`Assets`.`AssetClass` = `Assets_Classes`.`id`)) left join `Location_Facility` on(`Assets`.`Facility` = `Location_Facility`.`id`));";
 $conn->query("$sql");
 

@@ -672,6 +672,28 @@ class Content{
 
     //End Form AutoFill
 
+    public function UserGroupDeactivate(){
+        $UserGroup = $_POST["UserGroupSelection"];
+        //Determine if anything is checked
+        if(!empty($UserGroup)){
+
+
+            //Determine if assigned to anyone or exit
+
+            //Determine if assigned to any PM's, WO's or exit
+
+            //Delete ID if passed tests
+            $SQL = "UPDATE user_group SET Active = '0' WHERE id = '$UserGroup'";
+            echo $SQL;
+            self::$db->query($SQL);
+            $newURL = "controls.php?do=controller&action=groups&msg=GroupRemoved";
+            header("Location:/$newURL");  
+        } else {
+            $newURL = "controls.php?do=controller&action=groups&msg=NothingChecked";
+            header("Location:/$newURL");  
+        }
+    }
+
     public function UserRolesDelete(){
         $UserRole = $_POST["UserRoleSelection"];
         //Determine if anything is checked
@@ -691,6 +713,24 @@ class Content{
             $newURL = "controls.php?do=controller&action=userroles&msg=NothingChecked";
             header("Location:/$newURL");  
         }
+    }
+
+    public function AddControlGroup(){
+        $RoleArray["Description"] = $_POST["Group"];
+        $RoleArray["Facility"] = $_POST["Facility"];
+        $RoleArray["Active"] = 1;
+
+        if(empty($_POST["Group"]) || empty($_POST["Facility"])){
+            $newURL = "controls.php?do=controller&action=groups&msg=EmptyFields";
+            header("Location:/$newURL");  
+            die();
+        }
+
+        $SQLEntry = $this->InsertMultipleFields($RoleArray);
+        $InventoryLocation = self::$db->insert("user_group", $SQLEntry);
+
+        $newURL = "controls.php?do=controller&action=groups&msg=GroupAdded";
+        header("Location:/$newURL");  
     }
 
     public function AddRoleGroup(){

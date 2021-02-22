@@ -216,6 +216,7 @@ $ADCheck = $CheckifADorLocal[0]->ActiveDirectory;
                 echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=usergroups\">Assignable Roles</a>";
                 echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=users\">Users</a>";
                 echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=userroles\">User Roles</a>";
+                echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=groups\">Groups</a>";
               } 
             ?>
           </div>

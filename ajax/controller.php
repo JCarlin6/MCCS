@@ -376,9 +376,23 @@
       endif;
     endif;
 
+    if (isset($_POST['AddControlGroup'])):
+      if (intval($_POST['AddControlGroup']) == 0 || empty($_POST['AddControlGroup'])):
+        $content->AddControlGroup();
+        exit;
+      endif;
+    endif;
+
     if (isset($_POST['UserRolesDelete'])):
       if (intval($_POST['UserRolesDelete']) == 0 || empty($_POST['UserRolesDelete'])):
         $content->UserRolesDelete();
+        exit;
+      endif;
+    endif;
+
+    if (isset($_POST['UserGroupDeactivate'])):
+      if (intval($_POST['UserGroupDeactivate']) == 0 || empty($_POST['UserGroupDeactivate'])):
+        $content->UserGroupDeactivate();
         exit;
       endif;
     endif;
