@@ -218,13 +218,13 @@ class Content{
     //User Permissions
     public function UserPermissions(){
         $UID = $_SESSION["UID"];
-        $sql = "SELECT User.FirstName, User.LastName, User_Roles.Level, User_Roles.Description FROM User_Group_Details INNER JOIN User_Roles ON User_Group_Details.Role = User_Roles.id INNER JOIN User ON User.id = User_Group_Details.UID WHERE User.id='$UID'";
+        $sql = "SELECT User.FirstName, User.LastName, User_Roles.Level, User_Roles.Description FROM User_Group_Details INNER JOIN User_Roles ON User_Group_Details.Role = User_Roles.id INNER JOIN User ON User.id = User_Group_Details.UID WHERE User.id='$UID' ORDER BY User_Roles.`Level` ASC";
         $row = self::$db->fetch_all($sql);
         return ($row) ? $row : 0;
     }
 
     public function UserPermissionCheck($UID){
-        $sql = "SELECT User_Roles.Level FROM User_Group_Details INNER JOIN User_Roles ON User_Group_Details.Role = User_Roles.id WHERE User_Group_Details.UID ='$UID'";
+        $sql = "SELECT User_Roles.Level FROM User_Group_Details INNER JOIN User_Roles ON User_Group_Details.Role = User_Roles.id WHERE User_Group_Details.UID ='$UID' ORDER BY User_Roles.`Level` ASC";
         $row = self::$db->fetch_all($sql);
         return ($row) ? $row : 0;
     }
@@ -1566,55 +1566,21 @@ class Content{
                 echo "test";
             }
 
-                        //Notify Groups 3 and 4 *perhaps add to db one day
-                        if($NotifyingGroup == '6'){
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '4'; //Maintenance Operators
-                        } elseif($NotifyingGroup == '7') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '5';
-                        } elseif($NotifyingGroup == '10') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '10';
-                        } elseif($NotifyingGroup == '11') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '18';
-                        } elseif($NotifyingGroup == '12') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '11';
-                        } elseif($NotifyingGroup == '13') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '12';
-                        } elseif($NotifyingGroup == '14') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '13';
-                        } elseif($NotifyingGroup == '15') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '14';
-                        } elseif($NotifyingGroup == '16') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '15';
-                        } elseif($NotifyingGroup == '19') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '16';
-                        } elseif($NotifyingGroup == '18') {
-                            $Notify[] = '3'; //Crib Attendants
-                        } elseif($NotifyingGroup == '17') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '17';
-                        } else {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '4'; //Maintenance Operators
-                        }
-                        //Iterate through notifying groups and ascertain emails...
-                        $ToList = $this->MailingSQLIterate($Notify);
 
-                        include 'sitevariables.php';
-            
-                        $body = " Team, <br /><br /> A PM has been created by: $Username under PM: $lastid. <br /><br /> Please visit the referenced PM by clicking this <a href=\"http://$SiteAddress/default.php?do=workorders&action=viewpm&pmid=$lastid\">link</a><br /><br />  Thank you. ";
-                        $body = $this->MailNotice($body);
-                        $MailSubject = "System WorkOrder Generated";
-                        $this->InternaltoExternalMailCall($body, $MailSubject, $ToList);
+            $sql = "SELECT User_Roles.id FROM User_Roles INNER JOIN User_Group ON User_Roles.`Group` = User_Group.id WHERE User_Group.id = '$NotifyingGroup'";
+            $CheckGroups = self::$db->fetch_all($sql);
+            foreach($CheckGroups AS $Grouped){
+                $Notify[] = $Grouped->id;
+            }
+            //Iterate through notifying groups and ascertain emails...
+            $ToList = $this->MailingSQLIterate($Notify);
+
+            include 'sitevariables.php';
+
+            $body = " Team, <br /><br /> A PM has been created by: $Username under PM: $lastid. <br /><br /> Please visit the referenced PM by clicking this <a href=\"http://$SiteAddress/default.php?do=workorders&action=viewpm&pmid=$lastid\">link</a><br /><br />  Thank you. ";
+            $body = $this->MailNotice($body);
+            $MailSubject = "System WorkOrder Generated";
+            $this->InternaltoExternalMailCall($body, $MailSubject, $ToList);
 
             $newURL = "default.php?do=workorders&action=viewpm&pmid=$lastid&msg=WorkorderSubmitted";
             header("Location:/$newURL");
@@ -1684,46 +1650,11 @@ class Content{
             
 
             //Notify Groups 3 and 4 *perhaps add to db one day
-                        //Notify Groups 3 and 4 *perhaps add to db one day
-                        if($NotifyingGroup == '6'){
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '4'; //Maintenance Operators
-                        } elseif($NotifyingGroup == '7') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '5';
-                        } elseif($NotifyingGroup == '10') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '10';
-                        } elseif($NotifyingGroup == '11') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '18';
-                        } elseif($NotifyingGroup == '12') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '11';
-                        } elseif($NotifyingGroup == '13') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '12';
-                        } elseif($NotifyingGroup == '14') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '13';
-                        } elseif($NotifyingGroup == '15') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '14';
-                        } elseif($NotifyingGroup == '16') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '15';
-                        } elseif($NotifyingGroup == '19') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '16';
-                        } elseif($NotifyingGroup == '18') {
-                            $Notify[] = '3'; //Crib Attendants
-                        } elseif($NotifyingGroup == '17') {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '17';
-                        } else {
-                            $Notify[] = '3'; //Crib Attendants
-                            $Notify[] = '4'; //Maintenance Operators
-                        }
+            $sql = "SELECT User_Roles.id FROM User_Roles INNER JOIN User_Group ON User_Roles.`Group` = User_Group.id WHERE User_Group.id = '$NotifyingGroup'";
+            $CheckGroups = self::$db->fetch_all($sql);
+            foreach($CheckGroups AS $Grouped){
+                $Notify[] = $Grouped->id;
+            }
             //Iterate through notifying groups and ascertain emails...
             $ToList = $this->MailingSQLIterate($Notify);
 
