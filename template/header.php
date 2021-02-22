@@ -58,6 +58,9 @@ if (!isset($_SESSION['UID'])) {
       if ($AlertBar == 'WorkorderCannotCloseWithoutHours'){ $MSGHeader = 'Failure!'; $MSGText = 'Workorder cannot close with time spent missing!'; $ErrorType = "danger";}
       if ($AlertBar == 'AssetCreated'){ $MSGHeader = 'Success!'; $MSGText = 'Asset has been created!'; $ErrorType = "success";}
       if ($AlertBar == 'UpdatedAsset'){ $MSGHeader = 'Success!'; $MSGText = 'Asset has been updated!'; $ErrorType = "success";}
+      if ($AlertBar == 'EmptyFields'){ $MSGHeader = 'Failure!'; $MSGText = 'Fields must be filled in completely!'; $ErrorType = "danger";}
+      if ($AlertBar == 'NothingChecked'){ $MSGHeader = 'Failure!'; $MSGText = 'A role needs to be checked!'; $ErrorType = "danger";}
+      if ($AlertBar == 'RoleRemoved'){ $MSGHeader = 'Success!'; $MSGText = 'Role has been removed!'; $ErrorType = "success";}
     }
 }
 ?>

@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
 <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"><u>Modify User Groups:</u></h1>
+    <h1 class="h3 mb-2 text-gray-800"><u>Modify User Roles:</u></h1>
     <form enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
         <div class="container-fluid">
         </div>

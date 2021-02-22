@@ -1469,7 +1469,7 @@ $(document).ready(function() {
         {
          'targets': 4,
          'render': function (data, type, row, meta){
-            var inputchar = '  <td><input type="radio" id="UserRoleSelection" name="UserRoleSelection[]" value="'+row[-1]+'"></td>';
+            var inputchar = '  <td><input type="radio" id="UserRoleSelection" name="UserRoleSelection" value="'+row[-1]+'"></td>';
             return inputchar;
          }
         }]

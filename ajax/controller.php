@@ -369,6 +369,20 @@
       endif;
     endif;
 
+    if (isset($_POST['AddRoleGroup'])):
+      if (intval($_POST['AddRoleGroup']) == 0 || empty($_POST['AddRoleGroup'])):
+        $content->AddRoleGroup();
+        exit;
+      endif;
+    endif;
+
+    if (isset($_POST['UserRolesDelete'])):
+      if (intval($_POST['UserRolesDelete']) == 0 || empty($_POST['UserRolesDelete'])):
+        $content->UserRolesDelete();
+        exit;
+      endif;
+    endif;
+
     if (isset($_POST['ChecklistItem'])):
         $content->ChecklistItem();
         exit;

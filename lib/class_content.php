@@ -321,6 +321,13 @@ class Content{
             header("Location:/$newURL");
         }
 
+        //List Facilities
+        public function ListFacilities(){
+            $sql = "SELECT * FROM location_facility WHERE `disabled` IS NULL";
+            $row = self::$db->fetch_all($sql);
+            return ($row) ? $row : 0;
+        }
+
         //Department Lists By Facility
         public function DepartmentByFacility($Facility){
             $sql = "SELECT Location_Department.Name AS Department, Location_Department.id AS Department_ID, Location_Sub_Department.Disabled, Location_Sub_Department.Name AS Sub_Department, Location_Sub_Department.id AS Sub_Department_ID FROM Location_Sub_Department INNER JOIN Location_Department ON Location_Sub_Department.Department = Location_Department.id WHERE Location_Department.Facility = '$Facility'";
@@ -664,6 +671,45 @@ class Content{
 
 
     //End Form AutoFill
+
+    public function UserRolesDelete(){
+        $UserRole = $_POST["UserRoleSelection"];
+        //Determine if anything is checked
+        if(!empty($UserRole)){
+
+
+            //Determine if assigned to anyone or exit
+
+            //Determine if assigned to any PM's, WO's or exit
+
+            //Delete ID if passed tests
+            $SQL = "DELETE FROM user_roles WHERE id = '$UserRole'";
+            self::$db->query($SQL);
+            $newURL = "controls.php?do=controller&action=userroles&msg=RoleRemoved";
+            header("Location:/$newURL");  
+        } else {
+            $newURL = "controls.php?do=controller&action=userroles&msg=NothingChecked";
+            header("Location:/$newURL");  
+        }
+    }
+
+    public function AddRoleGroup(){
+        $RoleArray["Level"] = $_POST["Level"];
+        $RoleArray["Group"] = $_POST["Groups"];
+        $RoleArray["Description"] = $_POST["Role"];
+
+        if(empty($_POST["Groups"]) || empty($_POST["Level"])){
+            $newURL = "controls.php?do=controller&action=userroles&msg=EmptyFields";
+            header("Location:/$newURL");  
+            die();
+        }
+
+        $SQLEntry = $this->InsertMultipleFields($RoleArray);
+        $InventoryLocation = self::$db->insert("user_roles", $SQLEntry);
+
+        $newURL = "controls.php?do=controller&action=userroles";
+        header("Location:/$newURL");  
+    }
 
     //Update Forms
     public function DenyWOItemCall($WorkOrderID){

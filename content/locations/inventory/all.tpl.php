@@ -57,28 +57,30 @@
 		  </tfoot>
 		  <tbody>
 		  <?php 
-		  foreach($VendorListArray AS $VendorListItem){
-			if($VendorListItem->Active == '1'){
-				$VendorStatus = 'Active';
-			} else {
-				$VendorStatus = 'Inactive';
-			}
-			echo "<tr>";
-				echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Room</a></td>";
-                echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Aisle</a></td>";
-                echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Column</a></td>";
-				echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Shelf</a></td>";
-				if(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID) AND !empty($VendorListItem->Column_ID) AND !empty($VendorListItem->Shelf_ID)){
-					echo "<td><input type=\"checkbox\" id=\"ILSSelection\" name=\"ILSSelection[]\" value=\"$VendorListItem->Shelf_ID\"></td>";
-				} elseif(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID) AND !empty($VendorListItem->Column_ID)){
-					echo "<td><input type=\"checkbox\" id=\"ILCSelection\" name=\"ILCSelection[]\" value=\"$VendorListItem->Column_ID\"></td>";
-				} elseif(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID)){
-					echo "<td><input type=\"checkbox\" id=\"ILASelection\" name=\"ILASelection[]\" value=\"$VendorListItem->Aisle_ID\"></td>";
-				} elseif(!empty($VendorListItem->Room_ID)){
-					echo "<td><input type=\"checkbox\" id=\"ILRSelection\" name=\"ILRSelection[]\" value=\"$VendorListItem->Room_ID\"></td>";
+		  	if (is_array($VendorListArray) || is_object($VendorListArray)){
+				foreach($VendorListArray AS $VendorListItem){
+					if($VendorListItem->Active == '1'){
+						$VendorStatus = 'Active';
+					} else {
+						$VendorStatus = 'Inactive';
+					}
+					echo "<tr>";
+						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Room</a></td>";
+						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Aisle</a></td>";
+						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Column</a></td>";
+						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Shelf</a></td>";
+						if(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID) AND !empty($VendorListItem->Column_ID) AND !empty($VendorListItem->Shelf_ID)){
+							echo "<td><input type=\"checkbox\" id=\"ILSSelection\" name=\"ILSSelection[]\" value=\"$VendorListItem->Shelf_ID\"></td>";
+						} elseif(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID) AND !empty($VendorListItem->Column_ID)){
+							echo "<td><input type=\"checkbox\" id=\"ILCSelection\" name=\"ILCSelection[]\" value=\"$VendorListItem->Column_ID\"></td>";
+						} elseif(!empty($VendorListItem->Room_ID) AND !empty($VendorListItem->Aisle_ID)){
+							echo "<td><input type=\"checkbox\" id=\"ILASelection\" name=\"ILASelection[]\" value=\"$VendorListItem->Aisle_ID\"></td>";
+						} elseif(!empty($VendorListItem->Room_ID)){
+							echo "<td><input type=\"checkbox\" id=\"ILRSelection\" name=\"ILRSelection[]\" value=\"$VendorListItem->Room_ID\"></td>";
+						}
+					echo "</tr>";
 				}
-			echo "</tr>";
-		  }
+			}
 		  ?>
 		  </tbody>
 		</table>
