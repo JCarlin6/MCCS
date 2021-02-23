@@ -3,7 +3,10 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span><u><i>Grupo Antolin Howell</i></u></span>
+          <?php
+          include 'lib/sitevariables.php';
+            echo "<span><u><i>$SiteName</i></u></span>";
+            ?>
           </div>
         </div>
       </footer>

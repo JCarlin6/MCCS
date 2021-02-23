@@ -2989,25 +2989,26 @@ echo "<br />";
 
             //If not in service then clear out assignment area
             if($NamedArray["InService"] != '2'){
-                $DepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
-                $DepartmentID = $DepartmentIDArray[0];
-                $NamedArray["Department"] = $DepartmentID;
-                if(!empty($_POST["Department"])){
-                    if(empty($NamedArray["Department"])){
-                        $NamedArray["Department"] = $_POST["Department"];
+                if(empty(!$DepartmentIDArray)){
+                    $DepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
+                    $DepartmentID = $DepartmentIDArray[0];
+                    $NamedArray["Department"] = $DepartmentID;
+                    if(!empty($_POST["Department"])){
+                        if(empty($NamedArray["Department"])){
+                            $NamedArray["Department"] = $_POST["Department"];
+                        }
                     }
-                }
 
-                $SubDepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
-                $SubDepartmentID = $SubDepartmentIDArray[1];
-                $SubDepartmentID = substr($SubDepartmentID, 1);
-                $NamedArray["Sub_Department"] = $SubDepartmentID;
-                if(!empty($_POST["Sub_Department"])){
-                    if(empty($NamedArray["Sub_Department"])){
-                        $NamedArray["Sub_Department"] = $_POST["Sub_Department"];
+                    $SubDepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
+                    $SubDepartmentID = $SubDepartmentIDArray[1];
+                    $SubDepartmentID = substr($SubDepartmentID, 1);
+                    $NamedArray["Sub_Department"] = $SubDepartmentID;
+                    if(!empty($_POST["Sub_Department"])){
+                        if(empty($NamedArray["Sub_Department"])){
+                            $NamedArray["Sub_Department"] = $_POST["Sub_Department"];
+                        }
                     }
                 }
-                
             } else {
                 $NamedArray["Department"] = "";
                 $NamedArray["Sub_Department"] = "";

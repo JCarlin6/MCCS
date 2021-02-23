@@ -124,7 +124,7 @@ if (isset($_POST['SQLDetails'])):
 
       $conn = new mysqli("$MySQLServerAddress","$MySQLUsername","$MySQLPassword","$MySQLDB");
 
-      $sql = "INSERT INTO `$MySQLDB`.`location_facility` (`Name`, `Street`, `City`, `State`, `Country`) VALUES ('$DefaultSiteName','$Street', '$City', '$State', '$Country')";
+      $sql = "INSERT INTO `$MySQLDB`.`location_facility` (`id`,`Name`, `Street`, `City`, `State`, `Country`) VALUES ('1','$DefaultSiteName','$Street', '$City', '$State', '$Country')";
       $conn->query("$sql");
 
       unset($data);
