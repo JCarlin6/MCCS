@@ -1,3 +1,7 @@
+<?php
+if( (!empty($PermissionCheck) OR ($PermissionCheck == '0')) AND ($PermissionCheck < '3') ){
+?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -56,3 +60,7 @@
         </div>
 	</form>
 </div>
+
+<?php
+}
+?>

@@ -1,3 +1,7 @@
+<?php
+if($ADCheck == '0'){
+?>
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -77,3 +81,6 @@
 
     </form>
 </div>
+<?php
+}
+?>
