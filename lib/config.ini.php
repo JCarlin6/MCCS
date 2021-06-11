@@ -5,8 +5,8 @@
             }
         
             define('DB_SERVER', 'localhost'); 
-            define('DB_USER', 'jcarlin'); 
-            define('DB_PASS', 'M0nk3y!!'); 
+            define('DB_USER', ''); 
+            define('DB_PASS', ''); 
             define('DB_DATABASE', 'mccs');
         
             define('DEBUG', false);

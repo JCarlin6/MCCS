@@ -5,8 +5,8 @@
         
         class Database{
             private $server = "localhost";
-            private $user = "jcarlin";
-            private $pass = "M0nk3y!!";
+            private $user = "";
+            private $pass = "";
             private $database = "mccs";
             public $error = "";
             public $errno = 0;
