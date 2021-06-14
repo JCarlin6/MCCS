@@ -1,3 +1,7 @@
 node_modules
 vendor/SSHgit_rsa
 git_rsa.pub
+lib/class_db.php
+lib/config.ini.php
+lib/dbcontroller.php
+lib/sitevariables.php

@@ -1074,6 +1074,9 @@ $conn->query("$sql");
 $sql = "INSERT INTO `User_Group` VALUES (1,'Maintenance',1,1),(2,'Management',1,1),(3,'Safety',1,1);";
 $conn->query("$sql");
 
+$sql = "INSERT INTO `Vendor_Type` VALUES (1,'Supplier'),(2,'Contractor');";
+$conn->query("$sql");
+
 //Default Admin User and regular User will be added after AD is determined to be used or not.
 
 
