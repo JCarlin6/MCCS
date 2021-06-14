@@ -46,7 +46,7 @@
 									<div class="col">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Facility</label>
-											<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Antolin Howell">
+											<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Howell">
 										</div>
 									</div>
 									<div class="col">

@@ -108,7 +108,7 @@
 										<div class="form-group">
 											<label for="Facility">Facility Assigned:</label>
 											<input type="hidden" class="form-control" name="Facility" value="1">
-											<input type="text" disabled="disabled" class="form-control" name="Facility_Disabled" value="Antolin Howell">
+											<input type="text" disabled="disabled" class="form-control" name="Facility_Disabled" value="Howell">
 										</div>
 									</div>
 									<div class="col">

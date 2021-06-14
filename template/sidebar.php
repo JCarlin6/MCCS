@@ -21,7 +21,6 @@ $ADCheck = $CheckifADorLocal[0]->ActiveDirectory;
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="default.php">
         <div id="logo"></div>
-        <!-- <div class="sidebar-brand-text mx-3">Antolin Howell</div> -->
       </a>
 
       <!-- Divider -->

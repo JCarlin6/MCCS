@@ -17,7 +17,7 @@ if (!isset($_SESSION['UID'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Antolin Howell MCS</title>
+  <title>MCCS</title>
 
   <link href="../css/select2.min.css" rel="stylesheet" />
   <script src="../js/select2.min.js"></script> 
