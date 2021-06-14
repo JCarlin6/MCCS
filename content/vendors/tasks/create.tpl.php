@@ -3,33 +3,33 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><u>Vendor ID:</u><?php echo " " . $VendorTableID; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><u>Vendor ID:</u></h1>
 						<form enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
 											<label for="VendorName">Vendor Code<b>*</b>:</label>
-											<input type="hidden" class="form-control" name="VendorID" value="<?php echo $VendorTableID; ?>">
-											<input type="text" required="required" class="form-control" name="VendorName" value="<?php echo $VendorInformation[0]->Vendor_ID; ?>">
+											<input type="hidden" class="form-control" name="VendorID" value="">
+											<input type="text" required="required" class="form-control" name="VendorName" value="">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
 											<label for="Name">Name<b>*</b>:</label>
-											<input type="text" required="required" class="form-control" name="Name" value="<?php echo $VendorInformation[0]->Name; ?>">
+											<input type="text" required="required" class="form-control" name="Name" value="">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
 											<label for="PhoneNumber">Phone:</label>
-											<input type="text" class="form-control" name="PhoneNumber" value="<?php echo $VendorInformation[0]->Phone; ?>" placeholder="xxx-xxx-xxx">
+											<input type="text" class="form-control" name="PhoneNumber" value="" placeholder="xxx-xxx-xxx">
 										</div>
 									</div>
 									<div class="col">
                                         <div class="form-group">
 											<label for="FaxNumber">Fax:</label>
-											<input type="text" class="form-control" name="FaxNumber" value="<?php echo $VendorInformation[0]->Fax; ?>" placeholder="xxx-xxx-xxx">
+											<input type="text" class="form-control" name="FaxNumber" value="" placeholder="xxx-xxx-xxx">
 										</div>
 									</div>
 								</div>
@@ -37,13 +37,13 @@
 									<div class="col">
 										<div class="form-group">
 											<label for="Street">Street:</label>
-											<input type="text" class="form-control" name="Street" value="<?php echo $VendorInformation[0]->Street; ?>">
+											<input type="text" class="form-control" name="Street" value="">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
 											<label for="City">City, State:</label>
-											<input type="text" list="Cities" id="City" class="form-control" name="City" value="<?php echo $VendorInformation[0]->City; ?>">
+											<input type="text" list="Cities" id="City" class="form-control" name="City" value="">
 											<input type="hidden" name="City" id="City-hidden">
 											<datalist id="Cities">
 											<?php
@@ -61,13 +61,13 @@
 									<div class="col">
 										<div class="form-group">
 											<label for="Country">Country:<b>*</b></label>
-											<input type="text" required="required" class="form-control" name="Country" value="<?php echo $VendorInformation[0]->Country; ?>">
+											<input type="text" required="required" class="form-control" name="Country" value="">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
 											<label for="Zip">Zip Code:</label>
-											<input type="text" class="form-control" name="Zip" value="<?php echo $VendorInformation[0]->ZipCode; ?>">
+											<input type="text" class="form-control" name="Zip" value="">
 										</div>
 									</div>
 								</div>
@@ -76,13 +76,13 @@
 									<div class="col">
                                         <div class="form-group">
 											<label for="Website">Website:</label>
-											<input type="text" class="form-control" name="Website" value="<?php echo $VendorInformation[0]->Website; ?>">
+											<input type="text" class="form-control" name="Website" value="">
 										</div>
 									</div>
 									<div class="col">
                                         <div class="form-group">
 											<label for="Email">Email:</label>
-											<input type="text" class="form-control" name="Email" value="<?php echo $VendorInformation[0]->Email; ?>">
+											<input type="text" class="form-control" name="Email" value="">
 										</div>
 									</div>
 								</div>
