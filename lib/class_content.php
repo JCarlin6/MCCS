@@ -386,7 +386,7 @@ class Content{
         }
 
         public function VendorPageInfo($VendorTableID){
-            $sql = "SELECT Location_Facility.id AS Facility_ID, Location_Facility.Name AS Facility_Assigned, Vendor_Detail.Global, REPLACE(REPLACE(Vendor_Detail.Active, '0', 'Inactive'), '1', 'Active') Active, Vendor_Detail.State, Vendor_Detail.Country, Vendor_Detail.ZipCode, Vendor_Detail.City, Vendor_Detail.Street, Vendor_Detail.Name, Vendor_Detail.Website, Vendor_Detail.Fax, Vendor_Detail.Phone, Vendor_Detail.Vendor_ID, Vendor_Type.NameType FROM Vendor_Detail LEFT OUTER JOIN Location_Facility ON Vendor_Detail.Facility_Assigned = Location_Facility.id INNER JOIN Vendor_Type ON Vendor_Detail.Type = Vendor_Type.id WHERE Vendor_Detail.id = '$VendorTableID' LIMIT 1";
+            $sql = "SELECT Location_Facility.id AS Facility_ID, Location_Facility.Name AS Facility_Assigned, Vendor_Detail.Global, REPLACE(REPLACE(Vendor_Detail.Active, '0', 'Inactive'), '1', 'Active') Active, Vendor_Detail.State, Vendor_Detail.Country, Vendor_Detail.ZipCode, Vendor_Detail.City, Vendor_Detail.Street, Vendor_Detail.Name, Vendor_Detail.Website, Vendor_Detail.Email, Vendor_Detail.Fax, Vendor_Detail.Phone, Vendor_Detail.Vendor_ID, Vendor_Type.NameType FROM Vendor_Detail LEFT OUTER JOIN Location_Facility ON Vendor_Detail.Facility_Assigned = Location_Facility.id INNER JOIN Vendor_Type ON Vendor_Detail.Type = Vendor_Type.id WHERE Vendor_Detail.id = '$VendorTableID' LIMIT 1";
             $row = self::$db->fetch_all($sql);
             return ($row) ? $row : 0;
         }
