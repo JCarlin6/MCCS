@@ -5,3 +5,4 @@ lib/class_db.php
 lib/config.ini.php
 lib/dbcontroller.php
 lib/sitevariables.php
+server_side/cron/MinuteMail.php
