@@ -35,7 +35,7 @@
 											<label for="InventoryClass">Part Class:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"InventoryClass\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select an inventory class...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select an inventory class...</option>";
 											foreach($content->getPartClasses() AS $MeasureItem){
 												echo "<option value='$MeasureItem->id'>$MeasureItem->Class | $MeasureItem->Description</option>";
 											}
@@ -51,7 +51,7 @@
 											<label for="ModelNo">Unit of Measure:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"UnitofMeasure\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select a Unit of Measure...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select a Unit of Measure...</option>";
 											foreach($content->getUOM() AS $MeasureItem){
 													echo "<option value='$MeasureItem->id'>$MeasureItem->Type</option>";
 											}
@@ -64,7 +64,7 @@
 											<label for="UnitofWeight">Unit of Weight:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"UnitofWeight\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select a Unit of Weight...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select a Unit of Weight...</option>";
 											foreach($content->getUOW() AS $WeightItem){
 												echo "<option value='$WeightItem->id'>$WeightItem->Type</option>";
 											}
@@ -97,7 +97,7 @@
 											<label for="ROM">Re-Order Method:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"ROM\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select a Reorder Method...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select a Reorder Method...</option>";
 											foreach($content->getROM() AS $ReorderItem){
 												echo "<option value='$ReorderItem->id'>$ReorderItem->Type</option>";
 											}
@@ -159,7 +159,7 @@
 									<div class="col">
 										<div class="form-group">
 											<label for="CreatedBy">Created By:</label>
-											<input type="text" disabled="disabled" class="form-control" name="CreatedBy" value="<?php $UserName = explode('.',$_SESSION["Username"]); echo $UserName[0] . " " . $UserName[1]?>">
+											<input type="text" disabled="disabled" class="form-control" name="CreatedBy" value="<?php if(strpos($_SESSION["Username"], ".") !== false){ $UserName = explode('.',$_SESSION["Username"]); echo $UserName[0] . " " . $UserName[1];} else { echo $_SESSION["Username"]; }?>">
 										</div>
 									</div>
 									<div class="col">
@@ -193,7 +193,7 @@
 											<label for="Taxable">Taxable:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"Taxable\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Nothing Selected</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Nothing Selected</option>";
 												echo "<option value='1'>Yes</option>";
 												echo "<option value='2'>No</option>";
 											echo "</select>";
@@ -205,7 +205,7 @@
 											<label for="Active">Active:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"Active\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Nothing Selected</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Nothing Selected</option>";
 												echo "<option value='1'>Active</option>";
 												echo "<option value='2'>inActive</option>";
 											echo "</select>";
@@ -218,8 +218,7 @@
 										<div class="form-group">
 											<label for="Room">Room Assigned:</label>
 											<select name="Room" id="Room-list" class="form-control" onChange="getAisle(this.value);">
-												<option value="">Select Room</option>
-												<option value="29">AFTERFIRE</option>
+												<option value="">Select Room</option><?php foreach($content->ListRoom() as $Room) { ?> <option value="<?php echo $Room->id; ?>"><?php echo $Room->Name; ?></option><?php }  ?>
 											</select>
 										</div>
 									</div>
@@ -268,6 +267,7 @@
 							<hr class="half-rule"/>
 
 							<input type="submit" class="btn btn-success" style="width:50%; position:relative; margin-top:20px; top:50%; left:25%;" name="CreateInventoryData" value="Save">
+
 						</form>
 						</div>
 						

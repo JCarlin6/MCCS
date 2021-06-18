@@ -321,6 +321,13 @@ class Content{
             header("Location:/$newURL");
         }
 
+        //List Rooms
+        public function ListRoom(){
+            $sql = "SELECT * FROM Location_Inventory_Room ORDER BY Name";
+            $row = self::$db->fetch_all($sql);
+            return ($row) ? $row : 0;
+        }
+
         //List Facilities
         public function ListFacilities(){
             $sql = "SELECT * FROM location_facility WHERE `disabled` IS NULL";
@@ -713,6 +720,24 @@ class Content{
             $newURL = "controls.php?do=controller&action=userroles&msg=NothingChecked";
             header("Location:/$newURL");  
         }
+    }
+
+    public function AddPartType(){
+        $RoleArray["Type"] = $_POST["Type"];
+        $RoleArray["Description"] = $_POST["Description"];
+        $RoleArray["Active"] = 1;
+
+        if(empty($_POST["Type"]) || empty($_POST["Description"])){
+            $newURL = "controls.php?do=controller&action=parttype&msg=EmptyFields";
+            header("Location:/$newURL");  
+            die();
+        }
+
+        $SQLEntry = $this->InsertMultipleFields($RoleArray);
+        $InventoryLocation = self::$db->insert("inventory_types", $SQLEntry);
+
+        $newURL = "controls.php?do=controller&action=parttype&msg=PartTypeAdded";
+        header("Location:/$newURL");  
     }
 
     public function AddControlGroup(){

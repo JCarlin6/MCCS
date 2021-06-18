@@ -12,7 +12,7 @@ if(!empty($_POST["room_id"])) {
 $query ="SELECT * FROM Location_Inventory_Aisle WHERE Room = '" . $_POST["room_id"] . "' ORDER BY Name";
 $results = $mysqli->query($query); 
 
-?> <option value="">Select Room</option><?php foreach($results as $Aisle) { ?> <option value="<?php echo $Aisle["id"]; ?>"><?php echo $Aisle["Name"]; ?></option><?php } }
+?> <option value="">Select Aisle</option><?php foreach($results as $Aisle) { ?> <option value="<?php echo $Aisle["id"]; ?>"><?php echo $Aisle["Name"]; ?></option><?php } }
 
 ?>
 

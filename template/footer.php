@@ -1503,6 +1503,18 @@ $(document).ready(function() {
 
 <script>
 
+$(document).ready(function() {
+    $('#getPartType').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "server_side/scripts/getPartType.php",
+        dom: 'Blfrtip',
+        buttons: [ 'excel', 'pdf', 'copy' ],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+      } );
+  } );
+
+
   $(document).ready(function() {
     $('#getUserList').DataTable( {
         "processing": true,
@@ -2602,6 +2614,17 @@ for (var i = 0; i < inputs.length; i++) {
     }
   });
 }
+</script>
+
+<script>
+$(document).ready(function() {
+  $.ajax({
+    type: "POST",
+    url: "get_room.php",
+    success: function(data){
+        $("#Room-list").html(data);
+  }});
+});
 </script>
 
 <script> function getAisle(val) { $.ajax({

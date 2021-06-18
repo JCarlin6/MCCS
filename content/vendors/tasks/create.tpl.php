@@ -4,7 +4,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><u>Vendor ID:</u></h1>
-						<form enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
+						<form autocomplete="off" enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col">

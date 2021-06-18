@@ -60,6 +60,13 @@
         endif;
       endif;
 
+      if (isset($_POST['AddPartType'])):
+        if (intval($_POST['AddPartType']) == 0 || empty($_POST['AddPartType'])):
+          $content->AddPartType();
+          exit;
+        endif;
+      endif;
+
       if (isset($_POST['UpdateOrderPartTaxation'])):
         if (intval($_POST['UpdateOrderPartTaxation']) == 0 || empty($_POST['UpdateOrderPartTaxation'])):
           $content->UpdateOrderPartTaxation();

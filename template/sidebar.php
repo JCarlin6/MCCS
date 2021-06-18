@@ -218,6 +218,10 @@ $ADCheck = $CheckifADorLocal[0]->ActiveDirectory;
                 echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=groups\">Groups</a>";
               }
             ?>
+            <h6 class="collapse-header">Content Control:</h6>
+            <?php
+              echo "<a class=\"collapse-item\" href=\"controls.php?do=controller&action=parttype\">Part Type</a>";
+            ?>
           </div>
         </div>
       </li>

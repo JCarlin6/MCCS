@@ -10,6 +10,9 @@
 <?php case "groups":?>
   <?php include 'tasks/groups.tpl.php'; ?>
 <?php break;?>
+<?php case "parttype":?>
+  <?php include 'tasks/parttype.tpl.php'; ?>
+<?php break;?>
 <?php case "users":?>
   <?php include 'tasks/users.tpl.php'; ?>
 <?php break;?>
