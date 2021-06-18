@@ -4,7 +4,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><u>Create Asset:</u></h1>
-						<form enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
+						<form autocomplete="off" enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col">
@@ -25,7 +25,7 @@
 											<label for="AssetClass">Asset Class:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"AssetClass\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select an Asset class...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select an Asset class...</option>";
 											foreach($content->AssetClassList() AS $MeasureItem){
 												echo "<option value='$MeasureItem->id'>$MeasureItem->Name</option>";
 											}
@@ -68,7 +68,7 @@
 											<label for="Priority">Priority:</label>
 											<?php
 											echo "<select required=\"required\" class=\"form-control\" name=\"Priority\">";
-												echo "<option disabled=\"disabled\" selected=\"selected\">Select a Priority...</option>";
+												echo "<option disabled=\"disabled\" selected=\"selected\" value=\"\">Select a Priority...</option>";
 												echo "<option value='0'>Low</option>";
 												echo "<option value='1'>Medium</option>";
 												echo "<option value='2'>High</option>";
@@ -81,7 +81,7 @@
 										<div class="form-group">
 											<label for="Status">Status:</label>
 											<select required="required" class="form-control" name="Status">
-												<option disabled="disabled" selected="selected">Select a Status</option>
+												<option disabled="disabled" selected="selected" value="">Select a Status</option>
 												<option value="1">UP</option>
 												<option value="2">DOWN</option>
 											</select>
@@ -91,7 +91,7 @@
 										<div class="form-group">
 											<label for="InService">InService:</label>
 											<select required="required" class="form-control" name="InService">
-												<option disabled="disabled" selected="selected">Select an Option</option>
+												<option disabled="disabled" selected="selected" value="">Select an Option</option>
 												<option value="1">Yes</option>
 												<option value="2">No</option>
 											</select>
@@ -117,7 +117,7 @@
 										<div class="form-group">
 											<label for="Active">Active:</label>
 											<select required="required" class="form-control" name="Active">
-												<option disabled="disabled" selected="selected">Select an Option</option>
+												<option disabled="disabled" selected="selected" value="">Select an Option</option>
 												<option value="1">Active</option>
 												<option value="2">Inactive</option>
 											</select>

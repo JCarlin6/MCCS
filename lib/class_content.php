@@ -1278,7 +1278,7 @@ class Content{
             $NamedArray["Country"] = $_POST["Country"];
             $NamedArray["Website"] = $_POST["Website"];
             $NamedArray["Type"] = $_POST["NameType"];
-            //$NamedArray["Facility_Assigned"] = $_POST["Facility"];
+            $NamedArray["Facility_Assigned"] = $_POST["Facility"];
             $NamedArray["Active"] = $_POST["Active"];
             $State = explode(',', $NamedArray["City"]);
             $NamedArray["City"] = $State[0];
@@ -2989,8 +2989,8 @@ echo "<br />";
 
             //If not in service then clear out assignment area
             if($NamedArray["InService"] != '2'){
-                if(empty(!$DepartmentIDArray)){
-                    $DepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
+                $DepartmentIDArray = explode(',',$_POST["EndLocationInput-hidden"]);
+                if(!empty($DepartmentIDArray)){
                     $DepartmentID = $DepartmentIDArray[0];
                     $NamedArray["Department"] = $DepartmentID;
                     if(!empty($_POST["Department"])){

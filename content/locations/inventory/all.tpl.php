@@ -59,11 +59,6 @@
 		  <?php 
 		  	if (is_array($VendorListArray) || is_object($VendorListArray)){
 				foreach($VendorListArray AS $VendorListItem){
-					if($VendorListItem->Active == '1'){
-						$VendorStatus = 'Active';
-					} else {
-						$VendorStatus = 'Inactive';
-					}
 					echo "<tr>";
 						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Room</a></td>";
 						echo "<td><a href=\"\" style=\"text-decoration:none; color:inherit;\">$VendorListItem->Aisle</a></td>";
@@ -91,8 +86,6 @@
 		<div class="col">
 			<input type="submit" class="btn btn-warning" style="float: left; margin-right: 10px;" name="InventoryLocationLabelPrint" value="Print Label">
 			<input type="submit" class="btn btn-danger" style="float: right; margin-right: 10px;" name="InventoryLocationDelete" value="Delete">
-			<input type="submit" class="btn btn-warning" style="float: right; margin-right: 10px;" name="InventoryLocationDisable" value="Disable">
-			<input type="submit" class="btn btn-success" style="float: right; margin-right: 10px;" name="InventoryLocationActivate" value="Activate">
 		</div>
 	</div>
 	</form>

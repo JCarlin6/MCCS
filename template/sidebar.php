@@ -161,8 +161,6 @@ $ADCheck = $CheckifADorLocal[0]->ActiveDirectory;
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Inventory Locations:</h6>
             <a class="collapse-item" href="locations.php?do=inventory&action=all">All - Manage</a>
-            <a class="collapse-item" href="locations.php?do=inventory&action=active">Active</a>
-            <a class="collapse-item" href="locations.php?do=inventory&action=disabled">Disabled</a>
             <h6 class="collapse-header">Asset Locations:</h6>
             <a class="collapse-item" href="locations.php?do=assets&action=all">All - Manage</a>
             <a class="collapse-item" href="locations.php?do=assets&action=active">Active</a>

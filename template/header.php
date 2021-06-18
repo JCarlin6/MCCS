@@ -63,6 +63,7 @@ if (!isset($_SESSION['UID'])) {
       if ($AlertBar == 'RoleRemoved'){ $MSGHeader = 'Success!'; $MSGText = 'Role has been removed!'; $ErrorType = "success";}
       if ($AlertBar == 'GroupRemoved'){ $MSGHeader = 'Success!'; $MSGText = 'Group has been removed!'; $ErrorType = "success";}
       if ($AlertBar == 'GroupAdded'){ $MSGHeader = 'Success!'; $MSGText = 'Group has been added!'; $ErrorType = "success";}
+      if ($AlertBar == 'InventoryLocationDeleted'){ $MSGHeader = 'Success!'; $MSGText = 'Inventory Location has been deleted!'; $ErrorType = "success";}
     }
 }
 ?>

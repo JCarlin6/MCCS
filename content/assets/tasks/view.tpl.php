@@ -28,7 +28,17 @@
 									<div class="col">
                                         <div class="form-group">
 											<label for="AssetClass">Asset Class:</label>
-											<input type="text" class="form-control" name="AssetClass" value="<?php echo $AssetInformation[0]->AssetClass; ?>" placeholder="xxx-xxx-xxx">
+											<?php
+											echo "<select required=\"required\" class=\"form-control\" name=\"AssetClass\">";
+											foreach($content->AssetClassList() AS $MeasureItem){
+												if($AssetInformation[0]->AssetClass == $MeasureItem->id){
+													echo "<option value='$MeasureItem->id' selected=\"selected\">$MeasureItem->Name</option>";
+												} else {
+													echo "<option value='$MeasureItem->id'>$MeasureItem->Name</option>";
+												}
+											}
+											echo "</select>";
+											?>
 										</div>
 									</div>
 								</div>
@@ -64,7 +74,34 @@
 									<div class="col">
 										<div class="form-group">
 											<label for="Priority">Priority:</label>
-											<input type="text" class="form-control" name="Priority" value="<?php echo $AssetInformation[0]->Priority; ?>">
+											<?php 
+											$Priority = $AssetInformation[0]->Priority; 
+											echo "<select required=\"required\" class=\"form-control\" name=\"Priority\">";
+											if($Priority == '0'){
+												echo "<option value='0' selected=\"selected\">Low</option>";
+											} else {
+												echo "<option value='0'>Low</option>";
+											}
+
+											if($Priority == '1'){
+												echo "<option value='1' selected=\"selected\">Medium</option>";
+											} else {
+												echo "<option value='1'>Medium</option>";
+											}
+											
+											if($Priority == '2'){
+												echo "<option value='2' selected=\"selected\">High</option>";
+											} else {
+												echo "<option value='2'>High</option>";
+											}
+
+											if($Priority == '3'){
+												echo "<option value='3' selected=\"selected\">Critical</option>";
+											} else {
+												echo "<option value='3'>Critical</option>";
+											}
+											echo "</select>";
+											?>
 										</div>
 									</div>
 									<div class="col">
