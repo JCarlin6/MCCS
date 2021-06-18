@@ -740,6 +740,48 @@ class Content{
         header("Location:/$newURL");  
     }
 
+    public function PartTypeDelete(){
+        $PartTypeSelection = $_POST["PartTypeSelection"];
+        //Determine if anything is checked
+        if(!empty($PartTypeSelection)){
+            $SQL = "DELETE FROM inventory_types WHERE id = '$PartTypeSelection'";
+            self::$db->query($SQL);
+            $newURL = "controls.php?do=controller&action=parttype&msg=PartRemoved";
+            header("Location:/$newURL");  
+        } else {
+            $newURL = "controls.php?do=controller&action=parttype&msg=NothingChecked";
+            header("Location:/$newURL");  
+        }
+    }
+
+    public function PartTypeDisable(){
+        $PartTypeSelection = $_POST["PartTypeSelection"];
+        //Determine if anything is checked
+        if(!empty($PartTypeSelection)){
+            $SQL = "UPDATE inventory_types SET Active='2' WHERE id = '$PartTypeSelection'";
+            self::$db->query($SQL);
+            $newURL = "controls.php?do=controller&action=parttype&msg=PartDisabled";
+            header("Location:/$newURL");  
+        } else {
+            $newURL = "controls.php?do=controller&action=parttype&msg=NothingChecked";
+            header("Location:/$newURL");  
+        }
+    }
+
+    public function PartTypeActivate(){
+        $PartTypeSelection = $_POST["PartTypeSelection"];
+        //Determine if anything is checked
+        if(!empty($PartTypeSelection)){
+            $SQL = "UPDATE inventory_types SET Active='1' WHERE id = '$PartTypeSelection'";
+            self::$db->query($SQL);
+            $newURL = "controls.php?do=controller&action=parttype&msg=PartActivated";
+            header("Location:/$newURL");  
+        } else {
+            $newURL = "controls.php?do=controller&action=parttype&msg=NothingChecked";
+            header("Location:/$newURL");  
+        }
+    }
+
     public function AddControlGroup(){
         $RoleArray["Description"] = $_POST["Group"];
         $RoleArray["Facility"] = $_POST["Facility"];

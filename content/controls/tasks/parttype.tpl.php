@@ -40,36 +40,46 @@ if($ADCheck == '0'){
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid">
-            <h1 class="h3 mb-2 text-gray-800"><u>Part Type List:</u></h1>
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="getPartType" width="100%" cellspacing="0">
-                        <thead>
+    </form>
+        <form enctype="multipart/form-data" action="/ajax/controller.php?" method="post">
+            <div class="container-fluid">
+                <h1 class="h3 mb-2 text-gray-800"><u>Part Type List:</u></h1>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="getPartType" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
                             <tr>
-                            <th>ID</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                            <th>Status</th>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th></th>
                             </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                        </tr>
-                        </tfoot>
-                        </table>
+                            </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </form>
+            <div class="row">
+                <div class="col">
+                    <input type="submit" class="btn btn-danger" style="float: right; margin-right: 10px;" name="PartTypeDelete" value="Delete">
+                    <input type="submit" class="btn btn-warning" style="float: right; margin-right: 10px;" name="PartTypeDisable" value="Disable">
+                    <input type="submit" class="btn btn-success" style="float: right; margin-right: 10px;" name="PartTypeActivate" value="Activate">
+                </div>
+            </div>
+        </form>
 </div>
 <?php
 }

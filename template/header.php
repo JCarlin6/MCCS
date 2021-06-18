@@ -65,6 +65,9 @@ if (!isset($_SESSION['UID'])) {
       if ($AlertBar == 'GroupAdded'){ $MSGHeader = 'Success!'; $MSGText = 'Group has been added!'; $ErrorType = "success";}
       if ($AlertBar == 'InventoryLocationDeleted'){ $MSGHeader = 'Success!'; $MSGText = 'Inventory Location has been deleted!'; $ErrorType = "success";}
       if ($AlertBar == 'PartTypeAdded'){ $MSGHeader = 'Success!'; $MSGText = 'Part Type has been added!'; $ErrorType = "success";}
+      if ($AlertBar == 'PartRemoved'){ $MSGHeader = 'Success!'; $MSGText = 'Part Type has been removed!'; $ErrorType = "success";}
+      if ($AlertBar == 'PartDisabled'){ $MSGHeader = 'Success!'; $MSGText = 'Part Type has been disabled!'; $ErrorType = "success";}
+      if ($AlertBar == 'PartActivated'){ $MSGHeader = 'Success!'; $MSGText = 'Part Type has been activated!'; $ErrorType = "success";}
     }
 }
 ?>

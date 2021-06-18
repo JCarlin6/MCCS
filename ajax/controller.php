@@ -67,6 +67,27 @@
         endif;
       endif;
 
+      if (isset($_POST['PartTypeDelete'])):
+        if (intval($_POST['PartTypeDelete']) == 0 || empty($_POST['PartTypeDelete'])):
+          $content->PartTypeDelete();
+          exit;
+        endif;
+      endif;
+
+      if (isset($_POST['PartTypeDisable'])):
+        if (intval($_POST['PartTypeDisable']) == 0 || empty($_POST['PartTypeDisable'])):
+          $content->PartTypeDisable();
+          exit;
+        endif;
+      endif;
+
+      if (isset($_POST['PartTypeActivate'])):
+        if (intval($_POST['PartTypeActivate']) == 0 || empty($_POST['PartTypeActivate'])):
+          $content->PartTypeActivate();
+          exit;
+        endif;
+      endif;
+
       if (isset($_POST['UpdateOrderPartTaxation'])):
         if (intval($_POST['UpdateOrderPartTaxation']) == 0 || empty($_POST['UpdateOrderPartTaxation'])):
           $content->UpdateOrderPartTaxation();

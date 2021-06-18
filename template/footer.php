@@ -1511,6 +1511,14 @@ $(document).ready(function() {
         dom: 'Blfrtip',
         buttons: [ 'excel', 'pdf', 'copy' ],
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        'columnDefs': [
+        {
+         'targets': 4,
+         'render': function (data, type, row, meta){
+            var inputchar = '  <td><input type="radio" id="PartTypeSelection" name="PartTypeSelection" value="'+row[0]+'"></td>';
+            return inputchar;
+         }
+        }]
       } );
   } );
 
